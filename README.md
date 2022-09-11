@@ -1,14 +1,14 @@
 # SOL_Smart-Contract
 
-##☀️ Get local Solana env running.
-###🚦 Choose your path
+## Get local Solana env running.
+### Choose your path
 Getting Solana setup all starts with your machine. There are a bunch of "gotchyas" on different OS's. If you are running an Intel macOS machine or Linux machine feel free to move right on through. If you are running a Windows machine or M1 macOS machine follow one of the links below:
 
 Setup Solana on Windows Machine: https://github.com/buildspace/buildspace-projects/blob/main/Solana_And_Web3/en/Section_2/Resources/windows_setup.md
 
 Setup Solana on a M1 macOS Machine: https://github.com/buildspace/buildspace-projects/blob/main/Solana_And_Web3/en/Section_2/Resources/m1_setup.md
 
-###🦀 Install Rust
+### Install Rust
 In Solana, programs are written in Rust! If you don't know Rust don't worry. As long as you know some other language — you'll pick it up over the course of this project.
 
 To install Rust, you can just follow the installation steps here. There are clear steps for getting Rust installed for Windows, Linux, and Mac.
@@ -24,7 +24,7 @@ Once you're done, verify by doing:
 'cargo --version'
 - As long as all those commands output a version and didn't error, you're good to go!
 
-###🔥 Install Solana
+### Install Solana
 Solana has a super nice CLI that's going to be helpful later when we want to test the programs we write.
 
 Again, the installation steps are pretty straight forward here. There are clear steps for getting the Solana CLI installed for Windows, Linux, and Mac.
@@ -73,14 +73,14 @@ dyld: Library not loaded: /usr/local/opt/openssl@1.1/lib/libssl.1.1.dylib
   Reason: image not found
 Now, go ahead and CONTROL + C to stop the validator. We're never going to actually use 'solana-test-validator' manually ourselves again. The workflow we're going to follow will actually automatically run the validator in the background for us. I just wanted to show you it working so you can start getting an idea of how stuff is working magically as we move forward ;).
 
-###☕️ Install Node, NPM, and Mocha
+### Install Node, NPM, and Mocha
 Pretty solid chance you already have Node and NPM. When I do node --version I get v16.0.0. The minimum version is v11.0.0. If you don't have node and NPM, get it here.
 
 After that, be sure to install this thing called Mocha. It's a nice little testing framework to help us test our Solana programs.
 
 'npm install -g mocha'
 	
-###⚓️ Anchor
+### Anchor
 We're going to be using this tool called "Anchor" a lot. If you know about Hardhat from the world of Ethereum, it's sorta like that! Except — it's built for Solana. Basically, it makes it really easy for us to run Solana programs locally and deploy them to the actual Solana chain when we're ready!
 
 Installing this thing was a little troublesome for me, but, I got it working via the steps below! We're going to build it from source. Note: If you're on Linux, there are some special instructions you can follow here. Mac and Windows below. Also, if you're using Linux for Windows, follow the Linux commands!
@@ -99,7 +99,7 @@ We'll also use Anchor's npm module and Solana Web3 JS — these both will help u
 
 'npm install @project-serum/anchor @solana/web3.js'
 	
-###🏃‍♂️ Create a test project and run it
+### Create a test project and run it
 Okay, we're nearly done haha. The last thing we need to do to finalize installation is to actually run a Solana program locally and make sure it actually works.
 
 Let's start a boilerplate Solana project named myepicproject.
@@ -117,7 +117,7 @@ Let's start a boilerplate Solana project named myepicproject.
 
 If you are running the project locally and don't have yarn installed 'anchor init' will fail. To solve this you can install yarn by running 'npm install --global yarn' .
 
-###🔑 Create a local keypair
+### Create a local keypair
 Next thing we need to do is actually generate a local Solana wallet to work with. Don't worry about creating a passphrase for now, just tap "Enter" when it asks.
 
 'solana-keygen new'
@@ -128,7 +128,7 @@ If you run:
 'solana address'
 - You'll see the public address of your local wallet we just created.
 
-🥳 Let's run our program
+### Let's run our program
 When we did 'anchor init' it created a basic Solana program for us. What we want to do now is:
 
 1. Compile our program.
@@ -149,7 +149,7 @@ Congrats you've successfully set up your Solana environment :).
 	
 	
 	
-##😍 Write your first Solana program.
+## Write your first Solana program.
 
 Go ahead an open up myepicproject in VSCode.
 
@@ -164,7 +164,7 @@ Delete the contents of programs/myepicproject/src/lib.rs and  tests/myepicprojec
 
 Note: I didn't actually install the Rust extension for VSCode. It already has Rust syntax highlighting for me out of the box.
 
-###👶 A basic program
+### A basic program
 Let's write our first Solana program! This Rust code is going to live in the lib.rs file.
 
 Here's what it looks like:
@@ -209,7 +209,7 @@ pub struct StartStuffOff {}
 
 Let's just get stuff running and see what happens.
 
-💎 Write a script to see it working locally
+### Write a script to see it working locally
 We need to basically tell Anchor how we want our program to run and what functions we want to call. Head over to tests/myepicproject.js. This is actually written in javascript :).
 
 Go ahead and code this up:
@@ -287,7 +287,7 @@ Right now, our program does literally nothing haha. Let's change it up to store 
 
 Our website will allow people to submit GIFs. So, storing something like a total_gifs number would be pretty helpful too.
 
-###🥞 Create an integer to store GIF count
+### Create an integer to store GIF count
 Cool so we just want to store a basic integer with the number of total_gifs people have submitted. So, every time someone adds a new gif we'd just do total_gifs += 1.
 
 Let's think about this.
@@ -331,7 +331,7 @@ pub struct BaseAccount {
 }
 - A lot happening here. Let's step through it.
 
-###🤠 Initializing an account
+### Initializing an account
 Lets check out this line at the bottom:
 
 #[account]
@@ -382,7 +382,7 @@ pub fn start_stuff_off(ctx: Context<StartStuffOff>) -> Result <()> {
 
 Note: We do &mut to get a "mutable reference" to base_account. When we do this it actually gives us the power to make changes to base_account. Otherwise, we'd simply be working w/ a "local copy" of base_account.
 
-👋 Retrieve account data
+### Retrieve account data
 Let's put it all together.
 
 So, we can actually retrieve account data now as well over in javascript land. Go ahead and update myepicproject.js. I added some comments on lines I changed.
@@ -439,7 +439,7 @@ console.log('👀 GIF Count', account.totalGifs.toString())
 👀 GIF Count 0
 Yay! It's 0! This is pretty freaking epic. We now are actually calling a program and storing data in a permissionless manner on the Solana chain. NICE.
 
-###👷‍♀️ Build a function to update GIF counter
+### Build a function to update GIF counter
 Let's actually create a new function named add_gif that lets us actually increment the GIF counter. Check out some of my changes below.
 
 use anchor_lang::prelude::*;
@@ -502,7 +502,7 @@ pub fn add_gif(ctx: Context<AddGif>) -> Result <()> {
 
 Hope you can kinda see how the Context we set up near the bottom of the program actually becomes useful within the function. It's basically a nice way to say, "Hey, when someone calls add_gif be sure to attach the AddGif context to it as well so the user can access the base_account and whatever else is attached to AddGif.
 
-###🌈 Update the test script...again!
+### Update the test script...again!
 Every time we update our program, we need to change up our script to test the changes! Let's update myepicproject.js to call add_gif.
 
 const anchor = require('@project-serum/anchor');
@@ -556,7 +556,7 @@ Note: You'll notice when you run anchor test again it'll start the counter from 
 
 
 
-##🍿 Store structs on our program.
+### Store structs on our program.
 
 Epic. We're storing data on our Solana program. Not many people know how to do this stuff, so, you should definitely feel like a bit of a wizard. This ecosystem is really early and you're at the center of the magic right now.
 
@@ -564,7 +564,7 @@ So, a counter is cool. But, we want to store more complex data!
 
 Let's now set it up where we can store an array of structs with more data we care about like: a link to the gif and the public address of the person who submitted it. Then, we'd be able to retrieve this data on our client!
 
-##💎 Set up Vec
+##3 Set up Vec
 Check out some of the updates below:
 
 use anchor_lang::prelude::*;
@@ -638,7 +638,7 @@ This line takes care of that to make sure our data is properly serialized/deseri
 
 How did I figure this stuff out? Well  — I actually just dig through the docs myself and just read the source code! I also ask questions in the Anchor Discord! Remember, this stuff is new and it's up to you to discover answers when the docs don't provide them.
 
-###🤯 Update the test script and boom!
+### Update the test script and boom!
 As always, we need to return to our test script! Here are the updates:
 
 const anchor = require('@project-serum/anchor');
@@ -707,7 +707,7 @@ We've gotten pretty far. We're now not only writing and running Solana programs,
 	
 	
 	
-##🚀 Deploy program to the devnet.
+## Deploy program to the devnet.
 
 We pretty much have a basic API now — right :)?
 
@@ -721,7 +721,7 @@ Plus, I think it's easier to build the web app once we deploy our Solana program
 
 Note: Make sure 'solana-test-validator' is not running anywhere.
 
-###🌳 Set up your environment for devnet
+### Set up your environment for devnet
 It's actually pretty tricky to deploy to devnet. Stay with me here and make sure not to miss any steps :).
 
 First, switch to devnet:
@@ -742,7 +742,7 @@ From here, we'll need to airdrop ourselves some SOL on the devnet. It's actually
 
 Note: sometimes you'll get an error that says something like "insufficient funds" — whenever that happens just airdrop yourself 2 SOL like above. Note: 2 is the max you can airdrop yourself at a time right now. So, you'll need to refresh your wallet occasionally.
 
-###✨ Changing up some variables
+### Changing up some variables
 Now, we need to change some variables in Anchor.toml. This is where it gets a little tricky.
 
 In Anchor.toml, change [programs.localnet] to [programs.devnet].
@@ -799,7 +799,7 @@ That was a lot of steps. It's easy to mess up and get a random, confusing error.
 // Build again.
 'anchor build'
 	
-###🚀 Deploy to devnet!
+### Deploy to devnet!
 And finally, you're good to deploy :)! Go ahead and run:
 
 'anchor deploy'
@@ -817,7 +817,7 @@ This of course is not "Mainnet", but the "Devnet" is run by actual miners and is
 	
 	
 	
-##✅ Running a test on devnet
+## Running a test on devnet
 I actually like to run an anchor test at this point before I start integrating my web app. This could potentially save us from some random, annoying errors.
 
 Because our config is set to devnet, Anchor will actually run our tests directly on the devnet which is exactly what we want. That way we can make sure our actual functions are working properly on devnet!
@@ -853,7 +853,7 @@ That means we can upgrade programs while keeping the data piece separate. Pretty
 
 Note: this is very very different from Ethereum where you can never change a smart contract once it's deployed!
 
-###🤟 Hooking up our IDL file to the web app
+### Hooking up our IDL file to the web app
 So, we now have a deployed Solana program. Let's connect it up to our web app :).
 
 The first thing we need is the idl file that was magically output by anchor build earlier without you knowing. You should see it in target/idl/myepicproject.json.
