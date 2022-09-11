@@ -13,7 +13,7 @@ In Solana, programs are written in Rust! If you don't know Rust don't worry. As 
 
 To install Rust, you can just follow the installation steps here. There are clear steps for getting Rust installed for Windows, Linux, and Mac.
 
-Once you're done, verify by doing:
+Once you're done, verify by doing: 
 
 'rustup --version'
 - Then, make sure the rust compiler is installed:
