@@ -1,11 +1,30 @@
 # SOL_Smart-Contract
 
+📝 A note on Solana before we hop in
+Okay, so, to be honest getting Solana running and working is not easy right now.
+
+Now, does this mean Solana sucks? Ehhhh. No, I don't think so.
+
+I think Solana is a really early piece of technology and because it's so early it's changing often so it's hard to just Google a question or get a clear, concise answer from the Solana Docs.
+
+Back in 2015, I was really into machine learning and it was still pretty new. In 2015, machine learning docs sucked and it was hard to just search for an answer to a question myself because most of the time I was the first person asking that question lol. It was up to me to actually figure out an answer and then update the docs myself.
+
+That's the price of playing around with a piece of emerging technology :).
+
+I think Solana is in a similar spot and I really want to make it clear — don't expect a super clean developer experience. You will likely run into random bumps and it's up to you to figure out an answer + help others.
+
+I like this tweet as well which kinda lays out a similar idea.
+
+All this being said, I think Solana is insanely fun once you set it up and get a handle on how it works. It's so fast. The low-gas fees are magical. It's just really fun to be part of a community working on a breakthrough technology. It feels like you're part of the team actually building Solana :).
+
 🚦 Choose your path
-Getting Solana setup all starts with your machine. If you are running an Intel macOS machine or Linux machine feel free to move right on through. If you are running a Windows machine or M1 macOS machine follow one of the links below:
+Getting Solana setup all starts with your machine. There are a bunch of "gotchyas" on different OS's. If you are running an Intel macOS machine or Linux machine feel free to move right on through. If you are running a Windows machine or M1 macOS machine follow one of the links below:
 
 Setup Solana on Windows Machine
 
 Setup Solana on a M1 macOS Machine
+
+Good luck - you got this!
 
 🦀 Install Rust
 In Solana, programs are written in Rust! If you don't know Rust don't worry. As long as you know some other language — you'll pick it up over the course of this project.
@@ -65,7 +84,7 @@ Untitled
 
 Boom!! You're now running a local validator. Pretty cool :).
 
-If you are running an Intel Mac and see the error below you will need to install the OpenSSL library. The easiest way to do this would be through brew like so:  brew install openssl@1.1
+If you are running an Intel Mac and see the error below you will need to install the OpenSSL library. The easiest way to do this would be through brew like so: brew install openssl@1.1
 
 solana-gif-portal solana-test-validator
 dyld: Library not loaded: /usr/local/opt/openssl@1.1/lib/libssl.1.1.dylib
@@ -150,4 +169,4 @@ Note: If you receive the message node: --dns-result-order= is not allowed in NOD
 
 Note: If you get this message Error: Your configured rpc port: 8899 is already in use and you do not have application which is listenning to port 8899, try to run solana-test-validator, and in the next terminal tab anchor test --skip-local-validator. It should run fine.
 
-Congrats you've successfully set up your Solana environment :). It's been quite the journey, but, we made it fam.
+Congrats you've successfully set up your Solana environment :).
