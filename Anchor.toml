@@ -1,0 +1,15 @@
+[features]
+seeds = false
+skip-lint = false
+[programs.devnet]
+myepicproject = "EEyvL4cP8wMmP2Y1h3xyQkKFu6daionNHLTw7oE5PbY1"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "devnet"
+wallet = "/Users/kanakalasivasankar/.config/solana/id.json"
+
+[scripts]
+test = "node tests/myepicproject.js"
