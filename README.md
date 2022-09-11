@@ -48,7 +48,7 @@ This will output something like:
 Config File: /Users/flynn/.config/solana/cli/config.yml
 RPC URL: http://localhost:8899
 WebSocket URL: ws://localhost:8900/ (computed)
-Keypair Path: /Users/flynn/.config/solana/id.json
+Keypair Path: /Users/flynn/.config/solana/id.json 
 Commitment: confirmed
 - This means that Solana is set up to talk to our local network! When developing programs, we're going to be working w/ our local Solana network so we can quickly test stuff on our computer.
 
